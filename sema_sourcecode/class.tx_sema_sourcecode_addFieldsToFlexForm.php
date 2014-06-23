@@ -34,8 +34,6 @@ class tx_sema_sourcecode_addFieldsToFlexForm {
 
 		while ($file = readdir($dirHandle))     
 		{
-//            $pattern = '/'.$pattern.'/i';
-//            die($pattern);
 			if (preg_match($pattern, $file)) {
 				$languagename = preg_replace($pattern, "\\1", $file);
 				$filenames[] = $languagename;
