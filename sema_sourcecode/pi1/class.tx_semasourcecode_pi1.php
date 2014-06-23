@@ -22,7 +22,7 @@
 *  This copyright notice MUST APPEAR in all copies of the script!
 ***************************************************************/
 
-require_once(PATH_tslib.'class.tslib_pibase.php');
+//require_once(PATH_tslib.'class.tslib_pibase.php');
 
 if (t3lib_extMgm::isLoaded('geshilib')) {
 	require_once(t3lib_extMgm::siteRelPath('geshilib').'res/geshi.php');

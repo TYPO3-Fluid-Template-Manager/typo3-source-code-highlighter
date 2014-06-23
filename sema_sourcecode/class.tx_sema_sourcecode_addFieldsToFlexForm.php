@@ -29,20 +29,24 @@ class tx_sema_sourcecode_addFieldsToFlexForm {
 		$dirHandle = opendir($languagesPath) 
 		                    or die("ERROR: Invalid directory path - [$languagesPath], Modify the value of \$languagesPath'");
 
-		$pattern = "^(.*)\.php$";
+		$pattern = "/^(.*)\.php$/i";
 		$filenames = array();
 
 		while ($file = readdir($dirHandle))     
-		{       
-			if (eregi($pattern, $file)) { 
-				$languagename = eregi_replace($pattern, "\\1", $file);
+		{
+//            $pattern = '/'.$pattern.'/i';
+//            die($pattern);
+			if (preg_match($pattern, $file)) {
+				$languagename = preg_replace($pattern, "\\1", $file);
 				$filenames[] = $languagename;
 			}         
 		}
 		closedir($dirHandle);
-		sort($filenames);
+		sort($filenames);
+
 		$optionList = array();
-		$optionList[] = array(0 => '-', 1 => '-');
+		$optionList[] = array(0 => '-', 1 => '-');
+
 		foreach ($filenames as $languagename) {
 			$optionList[] = array(0 => $languagename, 1 => $languagename);
 		}
